@@ -1,0 +1,175 @@
+window.SITE_DATA = {
+  site: {
+    draftMode: true,
+    language: "en",
+    title: "Your Name · Academic Homepage",
+    description: "[你的姓名] 的个人学术主页：研究方向、论文、教育背景与科研经历。",
+    lastUpdated: "2026-10-26",
+  },
+
+  profile: {
+    name: "Your Name",
+    nameNative: "你的中文姓名",
+    role: "[Your position / degree]",
+    affiliation: "[Your university / institution]",
+    affiliationUrl: "",
+    location: "[City, Country]",
+    photo: "",
+    photoAlt: "Portrait of Your Name",
+    shortBio: "在这里用一句话介绍你的研究身份，以及你希望探索的问题。",
+    links: [
+      { label: "Email", icon: "mail", url: "" },
+      { label: "Google Scholar", icon: "scholar", url: "" },
+      { label: "GitHub", icon: "github", url: "https://github.com/chrislin0621" },
+      { label: "Curriculum Vitae", icon: "file", url: "" },
+    ],
+  },
+
+  sections: {
+    news: true,
+    technicalReports: true,
+    preprints: true,
+    publications: true,
+    education: true,
+    experiences: true,
+    services: true,
+  },
+
+  about: {
+    paragraphs: [
+      "你好，欢迎来到我的个人主页！我是 **[你的姓名]**，目前在 **[学校 / 研究机构]** 担任 [身份 / 职位]，由 [导师姓名] 指导。这里可以简要介绍你的学习背景与当前工作。",
+      "我的研究主要关注 **[研究方向一]**、**[研究方向二]** 和 **[研究方向三]**。我希望通过 [方法或技术路线]，解决 [你关注的核心问题]。",
+      "此前，我在 [学校 / 公司 / 实验室] 从事 [学习或研究工作]。欢迎就研究合作和学术交流与我联系。",
+    ],
+    interests: ["[Research area 01]", "[Research area 02]", "[Research area 03]"],
+    notice: "",
+  },
+
+  news: [
+    { date: "2026-10-01", text: "在这里填写最新动态，例如论文接收、项目发布或新阶段的开始。", placeholder: true },
+    { date: "2026-09-15", text: "在这里填写第二条动态，可以用 **加粗** 突出论文名称或会议。", placeholder: true },
+    { date: "2026-08-20", text: "在这里填写第三条动态，例如学术报告、开源代码或研究进展。", placeholder: true },
+    { date: "2026-07-10", text: "在这里填写第四条动态。主页只展示按日期排序后最近的四条。", placeholder: true },
+    { date: "2026-05-05", text: "较早的动态示例：此条不在主页显示，可通过 All news 查看。", placeholder: true },
+    { date: "2025-12-18", text: "跨年度动态示例：归档页会自动按年份分组，保留所有历史记录。", placeholder: true },
+  ],
+
+  technicalReports: [
+    {
+      title: "[Technical report title]",
+      authors: "**Your Name**, [Collaborator], [Collaborator]",
+      venue: "[Technical report / arXiv, Year]",
+      description: "用一到两句话介绍这份技术报告的研究问题、主要方法和贡献。",
+      image: "",
+      imageAlt: "",
+      badge: "Technical report",
+      links: [{ label: "PDF", url: "" }, { label: "Code", url: "" }, { label: "Project", url: "" }],
+      placeholder: true,
+    },
+  ],
+
+  preprints: [
+    {
+      title: "[Preprint title: a short description of your work]",
+      authors: "[First Author], **Your Name**, [Collaborator]",
+      venue: "[arXiv, Year]",
+      description: "在这里填写预印本的简要介绍，后续可以添加论文、代码和项目主页链接。",
+      image: "",
+      imageAlt: "",
+      badge: "Preprint",
+      links: [{ label: "arXiv", url: "" }, { label: "Code", url: "" }, { label: "Project", url: "" }],
+      placeholder: true,
+    },
+  ],
+
+  publications: [
+    {
+      title: "[Publication title: your research contribution]",
+      authors: "**Your Name**, [Co-author], [Corresponding Author]",
+      venue: "[Conference / Journal, Year]",
+      description: "简要描述论文的核心想法及结果，让读者快速理解这项工作的价值。",
+      image: "",
+      imageAlt: "",
+      badge: "[Venue · Year]",
+      note: "",
+      links: [{ label: "Paper", url: "" }, { label: "Code", url: "" }, { label: "Project", url: "" }],
+      placeholder: true,
+    },
+    {
+      title: "[Another publication title]",
+      authors: "[First Author], **Your Name**, [Co-author]",
+      venue: "[Conference / Journal, Year]",
+      description: "第二篇论文占位。复制整个条目即可增加论文，不需要修改页面布局。",
+      image: "",
+      imageAlt: "",
+      badge: "[Venue · Year]",
+      note: "",
+      links: [{ label: "Paper", url: "" }, { label: "Code", url: "" }],
+      placeholder: true,
+    },
+  ],
+
+  education: [
+    {
+      institution: "[University / Institution]",
+      url: "",
+      degree: "[Ph.D. / M.Sc.] in [Your field]",
+      period: "YYYY.MM — Present",
+      description: "Advisor: [导师姓名] · [学院 / 实验室]",
+      logo: "",
+      initials: "UNI",
+      placeholder: true,
+    },
+    {
+      institution: "[University / Institution]",
+      url: "",
+      degree: "[B.Eng. / B.Sc.] in [Your field]",
+      period: "YYYY.MM — YYYY.MM",
+      description: "[学院 / 专业，以及你希望补充的信息]",
+      logo: "",
+      initials: "UNI",
+      placeholder: true,
+    },
+  ],
+
+  experiences: [
+    {
+      role: "[Current role]",
+      organization: "[Company / Research Lab]",
+      url: "",
+      period: "YYYY.MM — Present",
+      description: "Focus on [研究方向 / 工作内容]。在这里简要介绍当前的研究或工作。",
+      mentors: "[导师 / 合作研究员，可留空]",
+      logo: "",
+      initials: "LAB",
+      placeholder: true,
+    },
+    {
+      role: "[Research Intern]",
+      organization: "[Company / Research Lab]",
+      url: "",
+      period: "YYYY.MM — YYYY.MM",
+      description: "Focus on [研究方向 / 项目名称]。可以介绍负责的任务与主要成果。",
+      mentors: "[导师 / 合作研究员，可留空]",
+      logo: "",
+      initials: "LAB",
+      placeholder: true,
+    },
+    {
+      role: "[Research Assistant / Intern]",
+      organization: "[University / Company]",
+      url: "",
+      period: "YYYY.MM — YYYY.MM",
+      description: "在这里填写更早的一段经历。按从近到远的顺序添加即可。",
+      mentors: "",
+      logo: "",
+      initials: "LAB",
+      placeholder: true,
+    },
+  ],
+
+  services: [
+    { title: "Reviewer", description: "[会议 / 期刊名称，年份]", placeholder: true },
+    { title: "Academic activities", description: "[学术活动 / 助教 / 社区服务，可按需增删]", placeholder: true },
+  ],
+};
