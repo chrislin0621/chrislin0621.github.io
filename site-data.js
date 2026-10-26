@@ -18,7 +18,7 @@ window.SITE_DATA = {
     photoAlt: "Portrait of Xiao Lin",
     // shortBio: "在这里用一句话介绍你的研究身份，以及你希望探索的问题。",
     links: [
-      { label: "Email", icon: "mail", url: "chrislin996@gmail.com" },
+      { label: "chrislin996@gmail.com", icon: "mail", url: "mailto:chrislin996@gmail.com" },
       { label: "Google Scholar", icon: "scholar", url: "https://scholar.google.com/citations?user=KGDYSHQAAAAJ&hl=en" },
       { label: "GitHub", icon: "github", url: "https://github.com/chrislin0621" },
       // { label: "Curriculum Vitae", icon: "file", url: "" },
