@@ -89,7 +89,7 @@ window.SITE_DATA = {
     {
       title: "RynnBrain: Open Embodied Foundation Models",
       authors: "**RynnBrain-Team**. Contributor",
-      venue: "Technical report, ArXiv:2607.17977",
+      venue: "Technical report, ArXiv:2602.14979",
       // description: "第二篇论文占位。复制整个条目即可增加论文，不需要修改页面布局。",
       image: "assets/images/rynn1.png",
       imageAlt: "",
