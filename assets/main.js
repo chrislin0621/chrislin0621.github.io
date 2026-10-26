@@ -6,15 +6,15 @@
     document.querySelector("#main-content").innerHTML = '<section class="configuration-error" role="alert" lang="zh-CN"><h1>主页内容暂未加载</h1><p>请确认仓库根目录中有 <code>site-data.js</code>，并检查最近修改是否遗漏了英文引号、逗号或括号。</p><p>修正后重新提交，等待 GitHub Pages 部署完成，再刷新页面即可。</p></section>';
     return;
   }
-  const isArchive = document.body.dataset.page === "news";
+  const page = document.body.dataset.page;
+  const isNewsArchive = page === "news";
+  const isArchive = isNewsArchive || page === "publications";
   const draftMode = data.site.draftMode;
   const sectionDefinitions = [
     { key: "news", id: "news", title: "News" },
-    { key: "technicalReports", id: "technical-reports", title: "Technical Reports" },
-    { key: "preprints", id: "preprints", title: "Pre-Prints" },
-    { key: "publications", id: "publications", title: "Publications" },
-    { key: "education", id: "education", title: "Education" },
     { key: "experiences", id: "experiences", title: "Experiences" },
+    { key: "publications", id: "publications", title: "Publications", qualifier: "selected" },
+    { key: "education", id: "education", title: "Education" },
     { key: "services", id: "services", title: "Academic Services" },
   ];
   const enabledSections = sectionDefinitions.filter((section) =>
@@ -85,7 +85,7 @@
   }
 
   function heading(section, extra = "") {
-    return `<div class="section-heading"><h2 id="${section.id}-heading">${section.title}</h2>${extra}</div>`;
+    return `<div class="section-heading"><h2 id="${section.id}-heading">${section.title}${section.qualifier ? ` <span class="heading-qualifier">(${section.qualifier})</span>` : ""}</h2>${extra}</div>`;
   }
 
   function imageWithFallback(source, alt, className, fallback) {
@@ -106,7 +106,7 @@
         <a class="wordmark" href="${homePrefix}#about">${icon("book")}<span>${escapeHtml(data.profile.name)}</span></a>
         <button class="menu-toggle" type="button" aria-controls="navigation" aria-expanded="false" aria-label="Open navigation">${icon("menu")}</button>
         <nav class="navigation" id="navigation" aria-label="Main navigation">
-          ${navigation.map((section) => `<a href="${homePrefix}#${section.id}" data-section="${section.id}"${isArchive && section.id === "news" ? ' aria-current="page"' : ""}>${section.title}</a>`).join("")}
+          ${navigation.map((section) => `<a href="${homePrefix}#${section.id}" data-section="${section.id}"${isArchive && section.id === page ? ' aria-current="page"' : ""}>${section.title}${section.qualifier ? ` (${section.qualifier})` : ""}</a>`).join("")}
         </nav>
       </div>`;
   }
@@ -131,8 +131,7 @@
 
   function renderAbout() {
     return `<section class="content-section about-section" id="about" aria-labelledby="about-heading">
-      <p class="eyebrow">A little about me</p>
-      <h1 id="about-heading">About me<span class="heading-period">.</span></h1>
+      <div class="section-heading"><h1 id="about-heading">About</h1></div>
       <div class="about-copy">${data.about.paragraphs.map((paragraph) => `<p>${richText(paragraph)}</p>`).join("")}</div>
       ${data.about.interests?.length ? `<div class="research-interests"><span class="interest-label">Research interests</span><div class="interest-tags">${data.about.interests.map((interest) => `<span>${escapeHtml(interest)}</span>`).join("")}</div></div>` : ""}
       ${data.about.notice ? `<div class="personal-notice">${richText(data.about.notice)}</div>` : ""}
@@ -156,10 +155,23 @@
   }
 
   function renderPublications(section) {
-    return `${heading(section)}${guide(`在 <code>site-data.js → ${section.key}</code> 中填写；没有内容时可以隐藏整个栏目。`)}
-      <div class="paper-list">${data[section.key].map((paper) => `<article class="paper">
+    const papers = (data.publications || []).filter((paper) => paper.selected !== false);
+    return `${heading(section, `<a class="text-link full-publications" href="publications.html">Full publication list ${icon("arrow")}</a>`)}${guide('在 <code>site-data.js → publications</code> 中填写；设为 <code>selected: false</code> 的论文仅在完整列表显示。')}
+      ${papers.length ? publicationList(papers) : '<p class="empty-state">No selected publications yet. View the full publication list for all papers.</p>'}`;
+  }
+
+  function publicationImage(paper) {
+    const image = imageWithFallback(paper.image, paper.imageAlt || paper.title, "paper-image", `${icon("diagram")}<span>RESEARCH OVERVIEW</span><small lang="zh-CN">论文配图 · 待添加</small>`);
+    const url = safeUrl(paper.imageLink || paper.links?.find((item) => safeUrl(item.url))?.url);
+    if (!url) return image;
+    const external = /^https?:/i.test(url) ? ' target="_blank" rel="noopener noreferrer"' : "";
+    return `<a class="paper-image-link" href="${escapeHtml(url)}" aria-label="View ${escapeHtml(paper.title)}"${external}>${image}</a>`;
+  }
+
+  function publicationList(papers) {
+    return `<div class="paper-list">${papers.map((paper) => `<article class="paper">
         <div class="paper-visual">
-          ${imageWithFallback(paper.image, paper.imageAlt || paper.title, "paper-image", `${icon("diagram")}<span>RESEARCH OVERVIEW</span><small lang="zh-CN">论文配图 · 待添加</small>`)}
+          ${publicationImage(paper)}
           ${paper.badge ? `<span class="paper-badge">${escapeHtml(paper.badge)}</span>` : ""}
         </div>
         <div class="paper-details">
@@ -192,7 +204,7 @@
   }
 
   function renderServices(section) {
-    return `${heading(section)}<ul class="service-list">${data.services.map((item) => `<li><div><strong>${escapeHtml(item.title)}</strong>${placeholderBadge(item)}</div><p>${richText(item.description)}</p></li>`).join("")}</ul>`;
+    return `${heading(section)}<ul class="service-list">${data.services.map((item) => `<li>${escapeHtml(item.title)} ${richText(item.description)}${placeholderBadge(item)}</li>`).join("")}</ul>`;
   }
 
   function renderHome() {
@@ -209,6 +221,17 @@
       ${guide('这里保留所有历史动态，按年份自动归档。带“待填写”标记的内容和日期均为示例。')}</section>
       ${years.map((year) => `<section class="archive-year" aria-labelledby="year-${escapeHtml(year)}"><div class="section-heading"><h2 id="year-${escapeHtml(year)}">${escapeHtml(year)}</h2><span class="year-count">${items.filter((item) => item.date.startsWith(year)).length} updates</span></div>${newsList(items.filter((item) => item.date.startsWith(year)))}</section>`).join("")}
       ${!items.length ? '<p class="empty-state">No updates yet. Check back soon.</p>' : ""}`;
+  }
+
+  function renderPublicationArchive() {
+    const papers = data.publications || [];
+    return `<section class="archive-intro" aria-labelledby="publication-list-heading">
+      <a class="text-link back-link" href="index.html#publications">${icon("back")} Back to homepage</a>
+      <p class="eyebrow">Research &amp; publications</p>
+      <h1 id="publication-list-heading">Full publication list<span class="heading-period">.</span></h1>
+      <p class="archive-summary">${papers.length} publication${papers.length === 1 ? "" : "s"}</p>
+      ${guide('这里展示 <code>publications</code> 中的全部论文，包含未入选主页的条目；按数据中的顺序排列。')}
+    </section>${papers.length ? publicationList(papers) : '<p class="empty-state">No publications yet. Check back soon.</p>'}`;
   }
 
   function renderFooter() {
@@ -273,13 +296,15 @@
   }
 
   document.documentElement.lang = data.site.language || "en";
-  document.title = isArchive ? `All news · ${data.profile.name}` : data.site.title;
+  const archiveTitle = isNewsArchive ? "All news" : "Full publication list";
+  document.title = isArchive ? `${archiveTitle} · ${data.profile.name}` : data.site.title;
   document.querySelector('meta[name="description"]').content = data.site.description;
   document.querySelector('meta[property="og:title"]').content = document.title;
   document.querySelector('meta[property="og:description"]').content = data.site.description;
   renderHeader();
   renderProfile();
-  document.querySelector("#main-content").innerHTML = isArchive ? renderArchive() : renderHome();
+  const pageRenderers = { home: renderHome, news: renderArchive, publications: renderPublicationArchive };
+  document.querySelector("#main-content").innerHTML = (pageRenderers[page] || renderHome)();
   renderFooter();
   setupNavigation();
   setupImageFallbacks();

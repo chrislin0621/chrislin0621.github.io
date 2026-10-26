@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
-  <rect width="40" height="40" rx="10" fill="#286354"/>
-  <path d="M11 12h8v16h-8zm10 0h8v16h-8z" fill="#fff" opacity=".9"/>
-  <path d="M14 16h2m-2 4h2m8-4h2m-2 4h2" stroke="#286354" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="favicon-title">
+  <title id="favicon-title">XL</title>
+  <rect width="64" height="64" rx="14" fill="#00369f"/>
+  <path d="M10 17h6l5.5 9.5L27 17h6l-8.5 15L33 47h-6l-5.5-9.5L16 47h-6l8.5-15Z" fill="#fff"/>
+  <path d="M37 17h5v25h12v5H37Z" fill="#fff"/>
 </svg>
