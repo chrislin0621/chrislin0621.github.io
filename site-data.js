@@ -21,7 +21,7 @@ window.SITE_DATA = {
       { label: "Email", icon: "mail", url: "mailto:chrislin996@gmail.com" },
       { label: "Google Scholar", icon: "scholar", url: "https://scholar.google.com/citations?user=KGDYSHQAAAAJ&hl=en" },
       { label: "GitHub", icon: "github", url: "https://github.com/chrislin0621" },
-      // { label: "Curriculum Vitae", icon: "file", url: "" },
+      { label: "CV", icon: "file", url: "assets/linxiao_s_resume.pdf" },
     ],
   },
 
