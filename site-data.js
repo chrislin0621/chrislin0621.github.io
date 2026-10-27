@@ -29,6 +29,7 @@ window.SITE_DATA = {
     news: true,
     publications: true,
     education: true,
+    awards: true,
     experiences: true,
     services: true,
   },
@@ -249,6 +250,16 @@ window.SITE_DATA = {
       initials: "UNI",
       // placeholder: false,
     },
+  ],
+
+  awards: [
+    { year: "2024", title: "The First Prize (Top 3) in \"Challenge Cup\" Competition of Science Achievement in China", placeholder: false },
+    { year: "2022", title: "Social Activity Scholarship", placeholder: false },
+    { year: "2021", title: "Excellent Graduation Project", placeholder: false },
+    { year: "2021", title: "Outstanding Graduate of Tongji University", placeholder: false },
+    { year: "2020", title: "National Scholarship (国家奖学金)", placeholder: false },
+    { year: "2020", title: "National First Prize in RoboCup Standard Platform", placeholder: false },
+    { year: "2019", title: "The First Prize in VEX Robotics World Championship", placeholder: false },
   ],
 
   experiences: [

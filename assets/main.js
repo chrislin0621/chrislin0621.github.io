@@ -15,6 +15,7 @@
     { key: "experiences", id: "experiences", title: "Experiences" },
     { key: "publications", id: "publications", title: "Publications", qualifier: "selected" },
     { key: "education", id: "education", title: "Education" },
+    { key: "awards", id: "awards", title: "Awards and Honors", qualifier: "selected" },
     { key: "services", id: "services", title: "Academic Services" },
   ];
   const enabledSections = sectionDefinitions.filter((section) =>
@@ -203,12 +204,16 @@
       </article>`).join("")}</div>`;
   }
 
+  function renderAwards(section) {
+    return `${heading(section)}<ul class="awards-list">${data.awards.map((item) => `<li>${item.year ? `${escapeHtml(item.year)}: ` : ""}${richText(item.title)}${placeholderBadge(item)}</li>`).join("")}</ul>`;
+  }
+
   function renderServices(section) {
     return `${heading(section)}<ul class="service-list">${data.services.map((item) => `<li>${escapeHtml(item.title)} ${richText(item.description)}${placeholderBadge(item)}</li>`).join("")}</ul>`;
   }
 
   function renderHome() {
-    const renderers = { news: renderNews, education: renderEducation, experiences: renderExperiences, services: renderServices };
+    const renderers = { news: renderNews, education: renderEducation, experiences: renderExperiences, awards: renderAwards, services: renderServices };
     return renderAbout() + enabledSections.map((section) => `<section class="content-section" id="${section.id}" aria-labelledby="${section.id}-heading">${(renderers[section.key] || renderPublications)(section)}</section>`).join("");
   }
 

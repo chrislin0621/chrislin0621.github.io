@@ -165,9 +165,9 @@ a.paper-link:hover { background: var(--accent-light); text-decoration: none; bor
 .at-sign { color: var(--muted); font-weight: 400; }
 .timeline-description { font-size: 0.6875rem; color: var(--muted); line-height: 1.85; margin-bottom: 6px; }
 .timeline-mentors { font-size: 0.625rem; color: var(--muted); margin-bottom: 8px; }
-.service-list { margin: 0; padding-left: 20px; list-style: disc; font-size: 0.875rem; line-height: 1.8; }
-.service-list li + li { margin-top: 8px; }
-.service-list .placeholder-badge { margin-left: 9px; }
+.awards-list, .service-list { margin: 0; padding-left: 20px; list-style: disc; font-size: 0.875rem; line-height: 1.8; }
+.awards-list li + li, .service-list li + li { margin-top: 8px; }
+.awards-list .placeholder-badge, .service-list .placeholder-badge { margin-left: 9px; }
 
 .archive-intro { margin-bottom: 38px; }
 .back-link { margin: 0 0 38px; }
@@ -192,7 +192,7 @@ a.paper-link:hover { background: var(--accent-light); text-decoration: none; bor
   .menu-toggle { display: flex; }
   .navigation { display: none; position: absolute; top: 67px; right: 30px; left: 30px; padding: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 0 0 6px 6px; box-shadow: 0 12px 24px #29323f0a; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; }
   .navigation.is-open { display: grid; }
-  .navigation a { padding: 10px 12px; border: 0; border-radius: 3px; }
+  .navigation a { padding: 10px 12px; border: 0; border-radius: 3px; white-space: normal; }
   .navigation a[aria-current] { background: var(--accent-light); }
   .page-layout { gap: 42px; padding-inline: 30px; grid-template-columns: 195px minmax(0, 1fr); }
   .portrait { width: 180px; }
