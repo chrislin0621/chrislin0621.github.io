@@ -138,6 +138,12 @@ h2, .section-heading h1 { font-size: 1.4375rem; line-height: 1.4; font-weight: 6
 .paper-link .icon { width: 10px; height: 10px; }
 a.paper-link:hover { background: var(--accent-light); text-decoration: none; border-color: var(--accent); }
 .paper-links .placeholder-badge { margin-left: 2px; }
+.paper-stars { display: inline-flex; align-items: center; min-height: 20px; }
+.paper-stars:hover { text-decoration: none; }
+.paper-stars-badge { min-width: 120px; min-height: 20px; }
+.paper-stars img { width: auto; height: 20px; max-width: 100%; }
+.paper-stars .image-fallback { display: inline-flex; align-items: center; gap: 5px; padding: 1px 6px; border: 1px solid var(--accent-border); border-radius: 3px; background: var(--surface); font-size: 0.625rem; }
+.paper-stars .icon { width: 13px; height: 13px; }
 
 .education-list { display: grid; gap: 28px; }
 .education-item { display: grid; grid-template-columns: var(--education-logo-size) minmax(0, 1fr) auto; gap: 16px 20px; align-items: center; }

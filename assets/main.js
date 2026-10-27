@@ -169,6 +169,20 @@
     return `<a class="paper-image-link" href="${escapeHtml(url)}" aria-label="View ${escapeHtml(paper.title)}"${external}>${image}</a>`;
   }
 
+  function publicationStars(paper) {
+    if (paper.githubStars === false) return "";
+    const code = (paper.links || []).find((item) => /^code$/i.test(String(item.label || "").trim()));
+    const codeUrl = safeUrl(code?.url, false);
+    const repository = /^https?:\/\/(?:www\.)?github\.com\/([a-z\d-]+)\/([a-z\d._-]+)(?=[/?#]|$)/i.exec(codeUrl);
+    if (!repository) return "";
+    const owner = repository[1];
+    const name = repository[2].replace(/\.git$/i, "");
+    if (!name || name === "." || name === "..") return "";
+    const badgeUrl = `https://img.shields.io/github/stars/${owner}/${name}?style=social&label=Code+Stars`;
+    const badge = imageWithFallback(badgeUrl, `GitHub Code Stars for ${owner}/${name}`, "paper-stars-badge", `${icon("github")}<span>Code Stars</span>`);
+    return link(badge, codeUrl, "paper-stars");
+  }
+
   function publicationList(papers) {
     return `<div class="paper-list">${papers.map((paper) => `<article class="paper">
         <div class="paper-visual">
@@ -180,7 +194,7 @@
           <p class="paper-authors">${richText(paper.authors)}</p>
           <p class="paper-venue">${escapeHtml(paper.venue)}${paper.note ? `<span class="paper-note">${escapeHtml(paper.note)}</span>` : ""}</p>
           ${paper.description ? `<p class="paper-description">${richText(paper.description)}</p>` : ""}
-          <div class="paper-links">${(paper.links || []).map((item) => link(`${escapeHtml(item.label)} ${icon("arrow")}`, item.url, "paper-link", "disabled")).join("")}${placeholderBadge(paper)}</div>
+          <div class="paper-links">${(paper.links || []).map((item) => link(`${escapeHtml(item.label)} ${icon("arrow")}`, item.url, "paper-link", "disabled")).join("")}${publicationStars(paper)}${placeholderBadge(paper)}</div>
         </div>
       </article>`).join("")}</div>`;
   }
