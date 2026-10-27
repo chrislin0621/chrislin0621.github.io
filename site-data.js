@@ -259,7 +259,7 @@ window.SITE_DATA = {
     { year: "2021", title: "Outstanding Graduate of Tongji University", placeholder: false },
     { year: "2020", title: "National Scholarship (国家奖学金)", placeholder: false },
     { year: "2020", title: "National First Prize in RoboCup Standard Platform", placeholder: false },
-    { year: "2019", title: "The First Prize in VEX Robotics World Championship", placeholder: false },
+    { year: "2019", title: "The First Prize in VEX Robotics World Championship (Louisville, Kentucky)", placeholder: false },
   ],
 
   experiences: [
