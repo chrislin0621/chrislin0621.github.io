@@ -296,8 +296,7 @@
   }
 
   document.documentElement.lang = data.site.language || "en";
-  const archiveTitle = isNewsArchive ? "All news" : "Full publication list";
-  document.title = isArchive ? `${archiveTitle} · ${data.profile.name}` : data.site.title;
+  document.title = data.site.title;
   document.querySelector('meta[name="description"]').content = data.site.description;
   document.querySelector('meta[property="og:title"]').content = document.title;
   document.querySelector('meta[property="og:description"]').content = data.site.description;

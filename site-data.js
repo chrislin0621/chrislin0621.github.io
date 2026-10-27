@@ -2,7 +2,7 @@ window.SITE_DATA = {
   site: {
     draftMode: false,
     language: "en",
-    title: "Xiao Lin · Academic Homepage",
+    title: "Xiao Lin ｜ 林啸",
     description: "[你的姓名] 的个人学术主页：研究方向、论文、教育背景与科研经历。",
     lastUpdated: "2026-10-26",
   },
