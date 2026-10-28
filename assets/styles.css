@@ -130,6 +130,7 @@ h2, .section-heading h1 { font-size: 1.4375rem; line-height: 1.4; font-weight: 6
 .paper h3 > span { color: var(--accent); }
 .paper-authors { font-size: 0.6875rem; margin-bottom: 3px; }
 .paper-authors strong { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.paper-authors .author-self { color: var(--accent-strong); background: #fff3bf; padding: 1px 3px; border-radius: 3px; text-decoration: none; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .paper-venue { font-size: 0.625rem; font-style: italic; color: var(--muted); margin-bottom: 7px; }
 .paper-note { color: #a26b2d; font-style: normal; font-weight: 600; margin-left: 8px; }
 .paper-description { font-size: 0.6875rem; color: var(--muted); line-height: 1.8; margin-bottom: 10px; }
