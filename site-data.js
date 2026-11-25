@@ -74,10 +74,13 @@ window.SITE_DATA = {
 
   publications: [
     {
-      title: "Arxiv 2026",
+      title: "SCAP: Stochastic Context for Action Expert Pretraining",
       authors: "**Xiao Lin**, Yaoxu Lyu, Ronghao Dang, Zhili Liu, Kaijing Ma, Yang Zhou, Dingning Liu, Runzhe Teng, Jun Cen, Shanghang Zhang, Chengju Liu, Qijun Chen",
+      equalContributionCount: 3,
       venue: "arXiv:2611.27187",
-      description: "SCAP: Stochastic Context for Action Expert Pretraining",
+      image: "assets/images/scap-architecture.png",
+      imageAlt: "Figure 2: SCAP training and model architecture",
+      badge: "Arxiv · 2026",
       links: [{ label: "Paper", url: "https://arxiv.org/abs/2611.27187" }],
       placeholder: false,
       selected: true,

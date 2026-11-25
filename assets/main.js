@@ -169,9 +169,13 @@
     return `<a class="paper-image-link" href="${escapeHtml(url)}" aria-label="View ${escapeHtml(paper.title)}"${external}>${image}</a>`;
   }
 
-  function publicationAuthors(authors) {
+  function publicationAuthors(authors, equalContributionCount) {
     const name = escapeHtml(data.profile.name);
-    return richText(authors).replaceAll(`<strong>${name}</strong>`, () => `<strong class="author-self">${name}</strong>`);
+    const format = (value) => richText(value).replaceAll(`<strong>${name}</strong>`, () => `<strong class="author-self">${name}</strong>`);
+    if (!equalContributionCount) return format(authors);
+    return authors.split(",").map((author, index) => format(author) + (index < equalContributionCount
+      ? '<sup aria-label="Equal contribution" title="Equal contribution">*</sup>'
+      : "")).join(",");
   }
 
   function publicationStars(paper) {
@@ -196,7 +200,7 @@
         </div>
         <div class="paper-details">
           <h3>${link(escapeHtml(paper.title), paper.links?.find((item) => safeUrl(item.url))?.url)}</h3>
-          <p class="paper-authors">${publicationAuthors(paper.authors)}</p>
+          <p class="paper-authors">${publicationAuthors(paper.authors, paper.equalContributionCount)}</p>
           <p class="paper-venue">${escapeHtml(paper.venue)}${paper.note ? `<span class="paper-note">${escapeHtml(paper.note)}</span>` : ""}</p>
           ${paper.description ? `<p class="paper-description">${richText(paper.description)}</p>` : ""}
           <div class="paper-links">${(paper.links || []).map((item) => link(`${escapeHtml(item.label)} ${icon("arrow")}`, item.url, "paper-link", "disabled")).join("")}${publicationStars(paper)}${placeholderBadge(paper)}</div>
