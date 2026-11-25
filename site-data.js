@@ -4,7 +4,7 @@ window.SITE_DATA = {
     language: "en",
     title: "Xiao Lin ｜ 林啸",
     description: "[你的姓名] 的个人学术主页：研究方向、论文、教育背景与科研经历。",
-    lastUpdated: "2026-10-26",
+    lastUpdated: "2026-11-25",
   },
 
   profile: {
@@ -36,12 +36,12 @@ window.SITE_DATA = {
 
   about: {
     paragraphs: [
-      "Currently, I am a Ph.D. student at Tongji University, advised by Prof. [Qijun Chen](https://scholar.google.com/citations?user=KY3DF9kAAAAJ&hl=en) and Prof. [Feng Lin](https://scholar.google.com/citations?user=dk_xvMcAAAAJ&hl=en) (**IEEE Fellow**). \
+      "I am a Ph.D. student at Tongji University, advised by Prof. [Qijun Chen](https://scholar.google.com/citations?user=KY3DF9kAAAAJ&hl=en) and Prof. [Feng Lin](https://scholar.google.com/citations?user=dk_xvMcAAAAJ&hl=en) (**IEEE Fellow**). \
       Before that, I received a B.Eng. in Automation from Tongji University in 2021.",
       
       "In 2026, I have been interning at **JD Future Acadamy**, working with [Ronghao Dang](http://rh-dang.com/) and [Zhili Liu](https://capricious-liu.github.io/), \
       supervised by [Tong He](https://tonghe90.github.io/) and [Jiangmiao Pang](https://oceanpang.github.io/). \
-      Previously, I interned at **Alibaba DAMO Academy**, supervised by [Xin Li](https://lixin4ever.github.io/) and [Deli Zhao](https://zhaodeli.github.io/). I am deeply grateful for these valuable research experiences.",
+      Previously, I interned at **Alibaba DAMO Academy**, working with [Minghao Zhu](https://zmhh-h.github.io/), supervised by [Xin Li](https://lixin4ever.github.io/) and [Deli Zhao](https://zhaodeli.github.io/). I am deeply grateful for these valuable research experiences.",
       
       "My research interests include multimodel fundation model, self-evolving embodied agent, and agentic memory system.",
     ],
@@ -73,6 +73,15 @@ window.SITE_DATA = {
   ],
 
   publications: [
+    {
+      title: "Arxiv 2026",
+      authors: "**Xiao Lin**, Yaoxu Lyu, Ronghao Dang, Zhili Liu, Kaijing Ma, Yang Zhou, Dingning Liu, Runzhe Teng, Jun Cen, Shanghang Zhang, Chengju Liu, Qijun Chen",
+      venue: "arXiv:2611.27187",
+      description: "SCAP: Stochastic Context for Action Expert Pretraining",
+      links: [{ label: "Paper", url: "https://arxiv.org/abs/2611.27187" }],
+      placeholder: false,
+      selected: true,
+    },
     {
       title: "RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model",
       authors: "**RynnBrain-Team**. Core Contributor",
